@@ -16,7 +16,8 @@ const typeDefs = `
         description: String
         image: String
         price: Int
-        category: Categories!
+        category: Categories
+        postedBy: Instructor
     }
 
     type Instructor {
@@ -25,7 +26,15 @@ const typeDefs = `
         lastName: String
         website: String
         image: String
-        title: String        
+        title: String       
+        postedCourses: [Course] 
+    }
+
+    input CourseInput {
+        name: String! 
+        description: String! 
+        price: Int!
+        category: Categories=OTHER
     }
 
     type Query {
@@ -36,7 +45,7 @@ const typeDefs = `
     }
 
     type Mutation {
-        postCourse(name: String! description: String! price: Int!): Boolean!
+        postCourse(input: CourseInput!): Course!
     }
 
 `;
@@ -54,10 +63,15 @@ const resolvers = {
         postCourse(_, args) {
             var newCourse = {
                 id: _id++,
-                ...args
+                ...args.input
             }
             courses.cours.push(newCourse);
-            return true
+            return newCourse;
+        }
+    },
+    Course: {
+        postedBy: _ => {
+            return instructors.instructors.find(i => i.firsName === _.instructor)
         }
     }
 };

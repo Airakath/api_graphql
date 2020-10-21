@@ -3,7 +3,8 @@ var cours1 = {
 	name: 'Woocommerce',
 	description: 'Apprendre a créer une boutique en ligne avec Wordpress',
 	image:'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wppourlesnuls.com%2Fcreer-une-boutique-en-ligne-wordpress-et-woocommerce%2F&psig=AOvVaw3mpVV4DE_SYHgP5YrwR9qB&ust=1603359640684000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCouLCyxewCFQAAAAAdAAAAABAD',
-	price: 19,
+    price: 19,
+    instructor: "Bernard"
 };
 
 var cours2 = {
@@ -11,7 +12,8 @@ var cours2 = {
 	name: 'Web',
 	description: 'Devenir développeur web',
 	image:'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.lanouvellerepublique.fr%2Fimage%2Fupload%2Ft_1020w%2F5c829e8063824043418b456c.jpg&imgrefurl=https%3A%2F%2Fwww.lanouvellerepublique.fr%2Ffrance-monde%2Fde-l-oxygene-pour-les-30-ans-du-web&tbnid=A5tSl47zDZbTaM&vet=12ahUKEwjUuaX9ssXsAhVD0YUKHZH4ALUQMygCegUIARClAQ..i&docid=XS5rkl-Pub3RjM&w=1020&h=573&q=web&ved=2ahUKEwjUuaX9ssXsAhVD0YUKHZH4ALUQMygCegUIARClAQ',
-	price: 29,
+    price: 29,
+    instructor: "Bernard"
 };
 
 var cours3 = {
@@ -19,7 +21,8 @@ var cours3 = {
 	name: 'Unity',
 	description: 'Créer des jeux avec Unity',
 	image:'https://www.google.com/imgres?imgurl=https%3A%2F%2Funity.com%2Flogo-unity-web.png&imgrefurl=https%3A%2F%2Funity.com%2Ffr&tbnid=fKWYjl0TxH18RM&vet=12ahUKEwjM9OXyssXsAhWI_4UKHR-KDF8QMygBegUIARCpAQ..i&docid=L13LHBWZlD5k5M&w=720&h=412&q=unity&ved=2ahUKEwjM9OXyssXsAhWI_4UKHR-KDF8QMygBegUIARCpAQ',
-	price: 39,
+    price: 39,
+    instructor: "Jean"
 };
 
 var cours4 = {
