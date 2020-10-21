@@ -31,9 +31,10 @@ const typeDefs = `
     }
 
     input CourseInput {
+        id: ID
         name: String! 
-        description: String! 
-        price: Int!
+        description: String 
+        price: Int
         category: Categories=OTHER
     }
 
@@ -46,6 +47,7 @@ const typeDefs = `
 
     type Mutation {
         postCourse(input: CourseInput!): Course!
+        updateCourseName(input: CourseInput): Course
     }
 
 `;
@@ -67,6 +69,18 @@ const resolvers = {
             }
             courses.cours.push(newCourse);
             return newCourse;
+        },
+        updateCourseName(_, args) {
+            var theId = args.input["id"];
+            console.log(theId);
+            var foundCourse
+            courses.cours.forEach(c => {
+                if (c.id == theId) {
+					c.name = args.input["name"];
+					foundCourse = c;
+				}
+            })
+            return foundCourse;
         }
     },
     Course: {
