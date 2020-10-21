@@ -43,11 +43,13 @@ const typeDefs = `
         totalCourses: Int!
         allCourses: [Course]!
         allInstructors: [Instructor]!
+        getCourse(id: ID!):Course
     }
 
     type Mutation {
         postCourse(input: CourseInput!): Course!
         updateCourseName(input: CourseInput): Course
+        deleteCourse(input: CourseInput): Course
     }
 
 `;
@@ -59,7 +61,8 @@ const resolvers = {
 		hello: () => "Hello l'API fonctionne !",
 		totalCourses: () => courses.cours.length,
 		allCourses: () => courses.cours,
-		allInstructors: () => instructors.instructors
+        allInstructors: () => instructors.instructors,
+        getCourse: (_, args) => courses.cours[args["id"]-1]
     },
     Mutation: {
         postCourse(_, args) {
@@ -72,7 +75,6 @@ const resolvers = {
         },
         updateCourseName(_, args) {
             var theId = args.input["id"];
-            console.log(theId);
             var foundCourse
             courses.cours.forEach(c => {
                 if (c.id == theId) {
@@ -80,6 +82,18 @@ const resolvers = {
 					foundCourse = c;
 				}
             })
+            return foundCourse;
+        },
+        deleteCourse(_, args) {
+            var theId = args.input["id"];
+            var foundCourse;
+            
+            for (let i = 0; courses.cours.length - 1 >= 0; i--) {
+                if (courses.cours[i]["id"] == theId) {	
+                    foundCourse = courses.cours[i];
+                    courses.cours.splice(i,1);
+				}
+            }
             return foundCourse;
         }
     },
