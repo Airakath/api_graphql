@@ -22,7 +22,7 @@ const typeDefs = `
 
     type Instructor {
         id: ID
-        firsName: String
+        firstName: String
         lastName: String
         website: String
         image: String
@@ -72,6 +72,17 @@ const resolvers = {
     Course: {
         postedBy: _ => {
             return instructors.instructors.find(i => i.firsName === _.instructor)
+        }
+    },
+    Instructor: {
+        postedCourses: _ => {
+            var coursesList = [];
+            courses.cours.forEach(c => {
+                if(c.instructor === _.firstName) {
+                    coursesList.push(c);
+                }
+            })
+            return coursesList;
         }
     }
 };
